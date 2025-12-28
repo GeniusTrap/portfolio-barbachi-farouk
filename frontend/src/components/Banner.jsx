@@ -168,7 +168,7 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
             
             <div className="lg:w-1/2 flex justify-center px-4">
   <div className="relative w-full max-w-full lg:max-w-[24rem]">
-    <div className="relative w-full aspect-square max-w-full mx-auto">
+    <div className="relative w-full h-64 sm:h-80 md:h-96 max-w-full mx-auto">
       <div className="absolute inset-0 w-full h-full z-20">
         <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gray-100">
           <img 
