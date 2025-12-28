@@ -170,7 +170,7 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
               <div className="relative">
                 <div className="relative w-96 h-96">
                   <div className="absolute inset-0 w-full h-full z-20">
-                    <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl overflow-hidden shadow-2xl">
   <img 
     src={assets.smiling} 
     alt="Barbachi Farouk" 
