@@ -114,19 +114,14 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
     });
 };
 
-<DownloadModal 
-  isOpen={showDownloadModal}
-  onClose={() => setShowDownloadModal(false)}
-  onDownload={handleDownloadCV}
-/>
-
   return (
     <>
       <section id="home" className="pt-16 bg-gradient-to-b from-white to-gray-50 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             
-            <div className="lg:w-1/2 mb-10 lg:mb-0">
+            {/* SECTION TEXTE - AVEC PADDING MOBILE */}
+            <div className="lg:w-1/2 mb-10 lg:mb-0 px-4">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6 min-h-[4.5rem] md:min-h-[5.5rem]">
                 {renderTextWithColors()}
                 {displayedText.length === fullText.length && (
@@ -153,39 +148,38 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
                   View My Work
                 </button>
                 <button 
-  onClick={() => {
-    setShowDownloadModal(true);
-  }}
-  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-medium py-3 px-8 rounded-full transition duration-300 flex items-center group"
->
-  <svg className="w-5 h-5 mr-2 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-  </svg>
-  Download CV
-</button>
+                  onClick={() => setShowDownloadModal(true)}
+                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-medium py-3 px-8 rounded-full transition duration-300 flex items-center group"
+                >
+                  <svg className="w-5 h-5 mr-2 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download CV
+                </button>
               </div>
             </div>
             
-            <div className="lg:w-1/2 flex justify-center">
+            {/* SECTION IMAGE - TAILLES RESPONSIVES */}
+            <div className="lg:w-1/2 flex justify-center px-4">
               <div className="relative">
-                <div className="relative w-96 h-96">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
                   <div className="absolute inset-0 w-full h-full z-20">
-                    <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl overflow-hidden shadow-2xl">
-  <img 
-    src={assets.smiling} 
-    alt="Barbachi Farouk" 
-    className="w-full h-full object-cover" 
-    loading="lazy"
-  />
-</div>
+                    <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+                      <img 
+                        src={assets.smiling} 
+                        alt="Barbachi Farouk" 
+                        className="w-full h-full object-cover" 
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   
-                  <div className="absolute inset-0">
-                    <div className="absolute top-0 left-1/2 w-16 h-16 bg-orange-200 rounded-full opacity-50 animate-orbit-outside" 
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-0 left-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-orange-200 rounded-full opacity-50 animate-orbit-outside" 
                          style={{ transform: 'translate(-50%, -50%)' }}>
                     </div>
                     
-                    <div className="absolute bottom-0 left-1/2 w-20 h-20 bg-orange-100 rounded-full opacity-50 animate-orbit-inside"
+                    <div className="absolute bottom-0 left-1/2 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-orange-100 rounded-full opacity-50 animate-orbit-inside"
                          style={{ transform: 'translate(-50%, 50%)' }}>
                     </div>
                   </div>
