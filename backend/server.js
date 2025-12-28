@@ -14,7 +14,16 @@ connectDB().then(() => {
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://faroukbarbachi.onrender.com',     // TON PORTFOLIO
+    'https://portfolio-admin-farouk.onrender.com', // TON ADMIN
+    'http://localhost:5173'                    // DEV LOCAL
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 
 app.use("/api/contacts", contactRoutes);
