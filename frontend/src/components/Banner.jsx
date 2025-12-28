@@ -166,32 +166,33 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
               </div>
             </div>
             
-            <div className="lg:w-1/2 flex justify-center">
-              <div className="relative">
-                <div className="relative w-96 h-96">
-                  <div className="absolute inset-0 w-full h-full z-20">
-                    <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-  <img 
-    src={assets.smiling} 
-    alt="Barbachi Farouk" 
-    className="w-full h-full object-cover" 
-    loading="lazy"
-  />
+            <div className="lg:w-1/2 flex justify-center px-4">
+  <div className="relative w-full max-w-full lg:max-w-[24rem]">
+    <div className="relative w-full aspect-square max-w-full mx-auto">
+      <div className="absolute inset-0 w-full h-full z-20">
+        <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gray-100">
+          <img 
+            src={assets.smiling} 
+            alt="Barbachi Farouk" 
+            className="w-full h-full object-cover" 
+            loading="lazy"
+          />
+        </div>
+      </div>
+      
+      {/* Cercles - ajustés pour mobile avec overflow-hidden */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/2 w-12 h-12 lg:w-16 lg:h-16 bg-orange-200 rounded-full opacity-50 animate-orbit-outside" 
+             style={{ transform: 'translate(-50%, -50%)' }}>
+        </div>
+        
+        <div className="absolute bottom-0 left-1/2 w-16 h-16 lg:w-20 lg:h-20 bg-orange-100 rounded-full opacity-50 animate-orbit-inside"
+             style={{ transform: 'translate(-50%, 50%)' }}>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-                  </div>
-                  
-                  <div className="absolute inset-0">
-                    <div className="absolute top-0 left-1/2 w-16 h-16 bg-orange-200 rounded-full opacity-50 animate-orbit-outside" 
-                         style={{ transform: 'translate(-50%, -50%)' }}>
-                    </div>
-                    
-                    <div className="absolute bottom-0 left-1/2 w-20 h-20 bg-orange-100 rounded-full opacity-50 animate-orbit-inside"
-                         style={{ transform: 'translate(-50%, 50%)' }}>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

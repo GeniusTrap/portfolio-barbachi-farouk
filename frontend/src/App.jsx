@@ -11,7 +11,7 @@ export const backendUrl = 'http://localhost:4000';
 
 function App() {
   return (
-    <div className="App">
+    <div className="overflow-x-hidden">
       <Navbar />
       <Banner />
       <Services />
