@@ -7,7 +7,7 @@ import Portfolio from './components/Portfolio';
 import Footer from './components/Footer';
 import WorkProcess from './components/WorkProcess';
 
-export const backendUrl = 'http://localhost:4000';
+export const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://portfolio-backend-farouk.onrender.com';
 
 function App() {
   return (
