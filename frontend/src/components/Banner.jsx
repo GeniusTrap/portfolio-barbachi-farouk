@@ -169,9 +169,25 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
-                  View My Work
-                </button>
+                <button 
+  onClick={(e) => {
+    e.preventDefault();
+    const element = document.getElementById('portfolio');
+    if (element) {
+      const navbarHeight = 64; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }}
+  className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg"
+>
+  View My Work
+</button>
                 <button 
                   onClick={() => setShowDownloadModal(true)}
                   className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-medium py-3 px-8 rounded-full transition duration-300 flex items-center group"
