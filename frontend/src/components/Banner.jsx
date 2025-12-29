@@ -67,6 +67,29 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
   
   const cvUrl = `${baseUrl}/CV.pdf`;
   
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isInstagram = /Instagram/i.test(userAgent);
+  const isTelegram = /Telegram/i.test(userAgent);
+  
+  if (isInstagram || isTelegram) {
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = cvFilename;
+    link.target = '_blank'; 
+    link.rel = 'noopener noreferrer';
+    link.style.display = 'none';
+    
+    document.body.appendChild(link);
+    link.click();
+    
+    setTimeout(() => {
+      document.body.removeChild(link);
+      setShowDownloadModal(false);
+    }, 1000);
+    
+    return; 
+  }
+  
   fetch(cvUrl, { method: 'HEAD' })
     .then(response => {
       
@@ -103,6 +126,7 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
       setTimeout(() => {
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
+        setShowDownloadModal(false);
       }, 100);
     })
     .catch(error => {
@@ -111,6 +135,7 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
       console.error('- Stack:', error.stack);
       
       alert(`Erreur de téléchargement:\n\n${error.message}\n\nVérifiez la console (F12) pour plus de détails.`);
+      setShowDownloadModal(false);
     });
 };
 
