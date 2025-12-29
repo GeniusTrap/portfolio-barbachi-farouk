@@ -30,10 +30,10 @@ const Footer = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const socialLinks = [
-    { icon: <FaGithub />, name: 'GitHub', url: 'https://github.com', color: 'hover:text-gray-800' },
+    { icon: <FaGithub />, name: 'GitHub', url: 'https://github.com/GeniusTrap', color: 'hover:text-gray-800' },
     { icon: <FaLinkedin />, name: 'LinkedIn', url: 'https://linkedin.com', color: 'hover:text-blue-600' },
-    { icon: <FaInstagram />, name: 'Instagram', url: 'https://twitter.com', color: 'hover:text-pink-600' },
-    { icon: <FaEnvelope />, name: 'Email', url: 'mailto:contact@example.com', color: 'hover:text-red-500' },
+    { icon: <FaInstagram />, name: 'Instagram', url: 'https://www.instagram.com/farouk_barbechi/', color: 'hover:text-pink-600' },
+    { icon: <FaEnvelope />, name: 'Email', url: 'mailto:faroukbarbachi@gmail.com?subject=Contact%20from%20Portfolio&body=Hello%20Farouk,%0A%0AI%20visited%20your%20portfolio...', color: 'hover:text-red-500' },
   ];
 
   const quickLinks = [
