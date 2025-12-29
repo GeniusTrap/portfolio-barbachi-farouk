@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assets } from '../assets/assets';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,11 +50,13 @@ const Navbar = () => {
                 onClick={(e) => handleSmoothScroll(e, 'home')}
                 className="flex items-center focus:outline-none group"
               >
-                <div className={`h-10 w-10 rounded-full flex items-center justify-center text-white font-bold text-xl transition-all duration-300 ${
-                  activeItem === 'home' ? 'bg-orange-600' : 'bg-orange-500 group-hover:bg-orange-600'
-                }`}>
-                  F
-                </div>
+                <div className="h-10 w-10 rounded-full flex items-center justify-center bg-white shadow-md border border-gray-100 transition-all duration-300 group-hover:shadow-lg">
+  <img 
+    src={assets.logo_f} 
+    alt="F Logo" 
+    className="h-7 w-7"
+  />
+</div>
                 <span className="ml-3 text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
                   Barbachi Farouk
                 </span>
@@ -130,11 +133,13 @@ const Navbar = () => {
                 }}
                 className="flex items-center focus:outline-none group"
               >
-                <div className={`h-12 w-12 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg transition-all duration-300 ${
-                  activeItem === 'home' ? 'bg-orange-600' : 'bg-gradient-to-r from-orange-500 to-orange-600 group-hover:from-orange-600 group-hover:to-orange-700'
-                }`}>
-                  F
-                </div>
+                <div className="h-12 w-12 rounded-full flex items-center justify-center bg-white shadow-lg border border-gray-100 transition-all duration-300">
+  <img 
+    src={assets.logo_f} 
+    alt="F Logo" 
+    className="h-9 w-9"
+  />
+</div>
                 <div className="ml-4">
                   <h2 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
                     Barbachi Farouk
