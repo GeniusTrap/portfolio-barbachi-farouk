@@ -31,10 +31,14 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <FaGithub />, name: 'GitHub', url: 'https://github.com/GeniusTrap', color: 'hover:text-gray-800' },
-    { icon: <FaLinkedin />, name: 'LinkedIn', url: 'https://linkedin.com', color: 'hover:text-blue-600' },
+    { icon: <FaLinkedin />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/barbachi-farouk-119154336/', color: 'hover:text-blue-600' },
     { icon: <FaInstagram />, name: 'Instagram', url: 'https://www.instagram.com/farouk_barbechi/', color: 'hover:text-pink-600' },
-    { icon: <FaEnvelope />, name: 'Email', url: 'mailto:faroukbarbachi@gmail.com?subject=Contact%20from%20Portfolio&body=Hello%20Farouk,%0A%0AI%20visited%20your%20portfolio...', color: 'hover:text-red-500' },
-  ];
+{ 
+  icon: <FaEnvelope />, 
+  name: 'Email', 
+  url: 'mailto:faroukbarbachi@gmail.com?subject=Contact%20-%20Barbachi%20Farouk%20Portfolio&body=Hello%20Farouk,%0A%0AI%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss...%0A%0ABest%20regards,', 
+  color: 'hover:text-red-500' 
+},  ];
 
   const quickLinks = [
     { label: 'Home', href: '#home' },
