@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaHeart, FaCode, FaUser, FaPaperPlane, FaComment, FaArrowLeft } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaHeart, FaCode, FaUser, FaPaperPlane, FaComment, FaArrowLeft } from 'react-icons/fa';
 import axios from 'axios';
 import { backendUrl } from '../App';
 import emailjs from '@emailjs/browser';
@@ -32,7 +32,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: <FaGithub />, name: 'GitHub', url: 'https://github.com', color: 'hover:text-gray-800' },
     { icon: <FaLinkedin />, name: 'LinkedIn', url: 'https://linkedin.com', color: 'hover:text-blue-600' },
-    { icon: <FaTwitter />, name: 'Twitter', url: 'https://twitter.com', color: 'hover:text-blue-400' },
+    { icon: <FaInstagram />, name: 'Instagram', url: 'https://twitter.com', color: 'hover:text-pink-600' },
     { icon: <FaEnvelope />, name: 'Email', url: 'mailto:contact@example.com', color: 'hover:text-red-500' },
   ];
 
