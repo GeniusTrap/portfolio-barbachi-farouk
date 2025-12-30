@@ -27,7 +27,7 @@ const Footer = () => {
     
     setTimeout(() => {
       setIsAdvancedContactHovering(false);
-    }, 8000);
+    }, 3000);
   };
   
   window.addEventListener('triggerAdvancedContactHover', handleTriggerHover);

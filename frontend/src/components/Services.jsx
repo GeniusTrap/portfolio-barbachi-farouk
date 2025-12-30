@@ -11,7 +11,7 @@ const Services = () => {
       icon: <FaCode className="text-4xl" />,
       title: "Frontend Development",
       description: "Modern React applications with responsive design using Tailwind CSS and latest web technologies.",
-      technologies: ["React.js", "Tailwind CSS", "TypeScript"],
+      technologies: ["React.js", "Tailwind CSS",],
       color: "from-blue-500 to-blue-600",
       features: [
         "",
