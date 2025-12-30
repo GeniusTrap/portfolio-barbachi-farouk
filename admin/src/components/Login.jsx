@@ -11,32 +11,60 @@ const Login = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
+  e.preventDefault();
+  setError('');
+  setLoading(true);
+  
+  const visualTimeout = setTimeout(() => {
+    setError('Connexion en cours... Patientez quelques secondes');
+  }, 5000);
 
-    try {
-      const response = await axios.post(
-        `${backendUrl}/api/auth/login`,  
-        { 
-          username,  
-          password 
+  const safetyTimeout = setTimeout(() => {
+    setError('❌ Délai dépassé. Vérifiez votre connexion ou réessayez.');
+    setLoading(false);
+  }, 15000);
+
+  try {
+    const response = await axios.post(
+      `${backendUrl}/api/auth/login`,  
+      { username, password },
+      { 
+        timeout: 12000, 
+        headers: {
+          'Content-Type': 'application/json'
         }
-      );
+      }
+    );
 
-      if (response.data.success) {
+    clearTimeout(visualTimeout);
+    clearTimeout(safetyTimeout);
+    
+    if (response.data.success) {
+      console.log('✅ Login réussi en', response.headers['x-response-time']);
       sessionStorage.setItem('isAdminLoggedIn', 'true');
       setIsAuthenticated(true);
       navigate('/');
     }
 
-    } catch (error) {
-      console.error('❌ Erreur de connexion:', error);
-      setError(error.response?.data?.message || 'Username ou mot de passe incorrect');
-    } finally {
-      setLoading(false);
+  } catch (error) {
+    clearTimeout(visualTimeout);
+    clearTimeout(safetyTimeout);
+    
+    console.error('❌ Erreur détaillée:', error);
+    
+    if (error.code === 'ECONNABORTED') {
+      setError('⏱️ Le serveur met trop de temps à répondre. Réessayez.');
+    } else if (error.response?.status === 401) {
+      setError('Identifiants incorrects');
+    } else if (!error.response) {
+      setError('⚠️ Serveur inaccessible. Vérifiez votre connexion.');
+    } else {
+      setError('Erreur de connexion au serveur');
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800">
