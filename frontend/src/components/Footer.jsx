@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaHeart, FaCode, FaUser,
 import axios from 'axios';
 import { backendUrl } from '../App';
 import emailjs from '@emailjs/browser';
+import { assets } from '../assets/assets';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -256,9 +257,13 @@ const Footer = () => {
                     onClick={(e) => handleSmoothScroll(e, 'home')}
                     className="flex items-center group focus:outline-none"
                   >
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold text-lg shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                      F
-                    </div>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg border border-gray-100 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+  <img 
+    src={assets.logo_f} 
+    alt="F Logo" 
+    className="h-7 w-7"
+  />
+</div>
                     <div className="ml-3">
                       <h3 className="text-lg font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
                         Barbachi Farouk
