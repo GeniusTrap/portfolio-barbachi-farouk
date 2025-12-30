@@ -32,11 +32,14 @@ app.use("/api/auth", authRoutes);
 app.use((req, res, next) => {
   const start = Date.now();
   
-  res.on('finish', () => {
+  const calcTime = () => {
     const duration = Date.now() - start;
-    res.setHeader('X-Response-Time', `${duration}ms`);
     console.log(`${req.method} ${req.url} - ${duration}ms`);
-  });
+  };
+  
+  res.on('finish', calcTime);
+  
+  res.on('close', calcTime);
   
   next();
 });
