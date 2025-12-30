@@ -21,11 +21,11 @@ function App() {
   }, [isAuthenticated]);
 
 const AdminLayout = () => (
-  <div className="flex h-screen bg-gray-100">
+  <div className="flex flex-col md:flex-row h-screen bg-gray-100">
     <Sidebar />
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col md:ml-64">
       <Navbar onLogout={handleLogout} />
-      <main className="flex-1 overflow-y-auto p-6">
+      <main className="flex-1 overflow-y-auto p-4 md:p-6">
         <ContactAdmin />
       </main>
     </div>
@@ -38,6 +38,7 @@ const handleLogout = () => {
 };
 
   return (
+    <div className="overflow-x-hidden">
     <Router>
       <Routes>
         <Route path="/" element={
@@ -51,6 +52,7 @@ const handleLogout = () => {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
+    </div>
   );
 }
 
