@@ -484,7 +484,7 @@ const WorkProcess = () => {
                     w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-white mr-4 md:mr-6
                     ${steps[activeStep].color} shadow-lg
                   `}>
-                    <div className="w-6 h-6 md:w-8 md:h-8">
+                    <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
                       {steps[activeStep].icon}
                     </div>
                   </div>
