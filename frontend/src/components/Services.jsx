@@ -14,7 +14,7 @@ const Services = () => {
       technologies: ["React.js", "Tailwind CSS", "TypeScript"],
       color: "from-blue-500 to-blue-600",
       features: [
-        "Custom React Components",
+        "",
       ]
     },
     {
@@ -24,7 +24,7 @@ const Services = () => {
       technologies: ["Node.js", "Express.js", "MongoDB", "REST API"],
       color: "from-green-500 to-green-600",
       features: [
-        "API Development",
+        "",
       ]
     },
     {
@@ -34,7 +34,7 @@ const Services = () => {
       technologies: ["MERN Stack", "Authentication", "Payment", "Deployment"],
       color: "from-orange-500 to-orange-600",
       features: [
-        "Full Project Development",
+        "",
       ]
     }
   ];
