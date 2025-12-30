@@ -27,7 +27,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-12 md:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Titre de la section */}
@@ -93,8 +93,6 @@ const Portfolio = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Reste du code inchangé... */}
-        {/* Grille des projets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {projects.map((project, index) => (
             <ScrollAnimation 
@@ -107,29 +105,24 @@ const Portfolio = () => {
                 className="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-2 hover:translate-x-1"
                 onClick={() => handleProjectClick(project.id)}
               >
-                {/* Titre superposé sur l'image */}
                 <div className="absolute bottom-4 left-4 z-20">
                   <h3 className="text-white font-bold text-xl drop-shadow-lg transition-transform duration-300 ease-out group-hover:translate-x-2">
                     {project.title}
                   </h3>
                 </div>
 
-                {/* Conteneur d'image */}
                 <div className="h-80 overflow-hidden relative">
-                  {/* Image du projet */}
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                   />
-                  
-                  {/* Overlay sur l'image */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-70 transition-opacity duration-200 ease-out group-hover:opacity-90"></div>
                   
-                  {/* Effet de brillance orange */}
+
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-500/0 via-orange-400/10 to-transparent opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"></div>
                   
-                  {/* Ligne orange animée en bas */}
+
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></div>
                 </div>
 

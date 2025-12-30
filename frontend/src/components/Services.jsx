@@ -162,7 +162,7 @@ const Services = () => {
                           </div>
 
                           {/* Contenu principal */}
-                          <div className="flex-1 p-6">
+                          <div className="flex-1 p-6 pb-20">
                             {/* Technologies */}
                             <div className="mb-8">
                               <h4 className="text-white font-bold mb-4 text-lg flex items-center">
@@ -186,25 +186,26 @@ const Services = () => {
                               </div>
                             </div>
 
-                            {/* Features */}
-                            <div className="mb-8">
-                              <div className="space-y-3">
-                                {service.features.map((feature, featureIndex) => (
-                                  <div 
-                                    key={featureIndex}
-                                    className="flex items-center bg-gray-800/30 rounded-lg px-4 py-3 hover:bg-gray-800/50 transition-colors duration-300"
-                                  >
-                                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                                    <span className="text-gray-300">{feature}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
                           </div>
 
-                          {/* Bouton CTA */}
-                          <div className="p-6 border-t border-gray-700">
-                            <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                          <div className="absolute bottom-0 left-0 right-0 p-6">
+                            <button 
+                              onClick={() => {
+                                // 1. Scroll vers le footer
+                                const footer = document.getElementById('contact');
+                                if (footer) {
+                                  footer.scrollIntoView({ behavior: 'smooth' });
+                                  
+                                  // 2. Après un petit délai pour arriver au footer, déclencher le hover
+                                  setTimeout(() => {
+                                    // Créer un événement personnalisé pour déclencher le hover
+                                    const hoverEvent = new CustomEvent('triggerAdvancedContactHover');
+                                    window.dispatchEvent(hoverEvent);
+                                  }, 800); // Délai pour arriver au footer
+                                }
+                              }}
+                              className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                            >
                               Start {service.title.split(' ')[0]} Project
                             </button>
                           </div>
