@@ -8,14 +8,15 @@ const Sidebar = () => {
 
   return (
     <>
+      {/* Hamburger à GAUCHE */}
       <button
-  onClick={() => setIsMobileOpen(!isMobileOpen)}
-  className="md:hidden fixed top-4 right-4 z-50 p-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full shadow-lg hover:scale-110 transition-transform"
-  style={{ left: 'auto' }} 
->
-  {isMobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-</button>
+        onClick={() => setIsMobileOpen(!isMobileOpen)}
+        className="md:hidden fixed top-4 left-4 z-50 p-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full shadow-lg hover:scale-110 transition-transform"
+      >
+        {isMobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+      </button>
 
+      {/* Sidebar Desktop */}
       <div className="hidden md:block w-64 bg-gradient-to-b from-gray-900 to-gray-800 text-white h-full shadow-xl fixed left-0 top-0">
         <div className="p-6 border-b border-gray-700">
           <div className="flex items-center">
@@ -32,16 +33,17 @@ const Sidebar = () => {
             className="w-full flex items-center px-6 py-4 hover:bg-gray-700 transition-colors border-l-4 border-orange-500"
           >
             <FaEnvelope className="text-xl mr-4" />
-            <span className="font-medium"> Contacts </span>
+            <span className="font-medium">Contacts</span>
           </button>
         </div>
       </div>
 
+      {/* Sidebar Mobile */}
       <div className={`
         md:hidden fixed inset-0 z-40 transform transition-transform duration-300 ease-in-out
         ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        {/* Overlay */}
+        {/* Overlay - clique pour fermer (remplace le X) */}
         {isMobileOpen && (
           <div 
             className="absolute inset-0 bg-black bg-opacity-50"
@@ -49,21 +51,15 @@ const Sidebar = () => {
           />
         )}
         
+        {/* Sidebar content - SANS le bouton X */}
         <div className="relative w-64 h-full bg-gradient-to-b from-gray-900 to-gray-800 text-white shadow-xl">
+          {/* Header SANS bouton X */}
           <div className="p-6 border-b border-gray-700">
-    <div className="flex items-center">
-      <div className="flex-1">
-        <h2 className="font-bold text-xl">Admin Panel</h2>
-        <p className="text-gray-400 text-sm">Portfolio Contacts</p>
-      </div>
-      <button
-        onClick={() => setIsMobileOpen(false)}
-        className="p-2 hover:bg-gray-700 rounded ml-4"
-      >
-        <FaTimes />
-      </button>
-    </div>
-  </div>
+            <div>
+              <h2 className="font-bold text-xl">Admin Panel</h2>
+              <p className="text-gray-400 text-sm">Portfolio Contacts</p>
+            </div>
+          </div>
 
           <div className="py-6">
             <button
