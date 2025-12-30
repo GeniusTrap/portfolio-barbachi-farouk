@@ -55,7 +55,6 @@ const Footer = () => {
     'Express',
     'MongoDB',
     'Tailwind CSS',
-    'TypeScript',
   ];
 
   const handleSubscribe = async (e) => {
