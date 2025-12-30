@@ -22,11 +22,9 @@ const Footer = () => {
   }, []);
 
   useEffect(() => {
-  // Écouter l'événement déclenché par les boutons CTA
   const handleTriggerHover = () => {
     setIsAdvancedContactHovering(true);
     
-    // Hover pendant 2 secondes puis s'arrête
     setTimeout(() => {
       setIsAdvancedContactHovering(false);
     }, 8000);
@@ -376,8 +374,8 @@ const Footer = () => {
   }`}
   style={{
     background: isAdvancedContactHovering 
-      ? 'linear-gradient(to right, #10b981, #059669)' // Vert
-      : 'linear-gradient(to right, #f97316, #ea580c)' // Orange (original)
+      ? 'linear-gradient(to right, #10b981, #059669)' 
+      : 'linear-gradient(to right, #f97316, #ea580c)' 
   }}
 >
   <div className={`absolute inset-0 transition-opacity duration-300 ${
@@ -385,8 +383,8 @@ const Footer = () => {
   }`}
   style={{
     background: isAdvancedContactHovering 
-      ? 'linear-gradient(to right, #059669, #047857)' // Vert foncé
-      : 'linear-gradient(to right, #ea580c, #c2410c)' // Orange foncé (original)
+      ? 'linear-gradient(to right, #059669, #047857)' 
+      : 'linear-gradient(to right, #ea580c, #c2410c)' 
   }}
   ></div>
   

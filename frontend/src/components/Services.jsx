@@ -85,10 +85,8 @@ const Services = () => {
                     } ${!isRevealed ? 'cursor-pointer' : ''}`}
                     onClick={() => !isRevealed && handleCardClick(index)}
                   >
-                    {/* Mystery Box - Seulement si PAS dans revealedCards */}
                     {!isRevealed && (
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
-                        {/* Animated sparkles */}
                         <div className="absolute inset-0 overflow-hidden">
                           {[...Array(12)].map((_, i) => (
                             <div 
@@ -103,7 +101,6 @@ const Services = () => {
                           ))}
                         </div>
                         
-                        {/* Box content */}
                         <div className="relative z-10 h-full flex flex-col items-center justify-center p-6">
                           <div className={`w-24 h-24 border-4 border-dashed border-orange-500 rounded-lg flex items-center justify-center mb-6 ${
                             isShaking ? 'animate-pulse-fast' : 'animate-pulse'
@@ -125,10 +122,9 @@ const Services = () => {
                       </div>
                     )}
 
-                    {/* Carte révélée - Seulement si DANS revealedCards */}
+
                     {isRevealed && (
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black animate-fade-in">
-                        {/* Les étoiles */}
                         <div className="absolute inset-0 overflow-hidden">
                           {[...Array(8)].map((_, i) => (
                             <div 
@@ -161,9 +157,7 @@ const Services = () => {
                             </p>
                           </div>
 
-                          {/* Contenu principal */}
                           <div className="flex-1 p-6 pb-20">
-                            {/* Technologies */}
                             <div className="mb-8">
                               <h4 className="text-white font-bold mb-4 text-lg flex items-center">
                                 <svg className="w-5 h-5 text-orange-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,17 +185,14 @@ const Services = () => {
                           <div className="absolute bottom-0 left-0 right-0 p-6">
                             <button 
                               onClick={() => {
-                                // 1. Scroll vers le footer
                                 const footer = document.getElementById('contact');
                                 if (footer) {
                                   footer.scrollIntoView({ behavior: 'smooth' });
                                   
-                                  // 2. Après un petit délai pour arriver au footer, déclencher le hover
                                   setTimeout(() => {
-                                    // Créer un événement personnalisé pour déclencher le hover
                                     const hoverEvent = new CustomEvent('triggerAdvancedContactHover');
                                     window.dispatchEvent(hoverEvent);
-                                  }, 800); // Délai pour arriver au footer
+                                  }, 800); 
                                 }
                               }}
                               className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -219,11 +210,9 @@ const Services = () => {
           })}
         </div>
 
-        {/* Paragraphe avec bordures serpentines - Animation retardée */}
         <ScrollAnimation delay={600} direction="fade" duration={800}>
           <div className="mt-12 max-w-3xl mx-auto px-4">
             <div className="relative group">
-              {/* Effet d'ombre animée */}
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
               
               <div className="animated-border-box relative">
@@ -232,7 +221,6 @@ const Services = () => {
                 <div className="border-bottom"></div>
                 <div className="border-left"></div>
                 
-                {/* Points d'angle décoratifs */}
                 <div className="absolute -top-1 -left-1 w-3 h-3 bg-orange-500 rounded-full animate-ping"></div>
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
                 <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-orange-500 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
@@ -251,7 +239,6 @@ const Services = () => {
                     Precision engineering meets artistic vision
                   </p>
                   
-                  {/* Ligne décorative sous le texte */}
                   <div className="mt-3 flex justify-center">
                     <div className="w-16 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent animate-pulse"></div>
                   </div>
