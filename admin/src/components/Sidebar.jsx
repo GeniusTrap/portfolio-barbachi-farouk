@@ -8,12 +8,13 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Hamburger à GAUCHE */}
+      {/* Hamburger à GAUCHE - TOUJOURS 3 barres */}
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         className="md:hidden fixed top-4 left-4 z-50 p-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full shadow-lg hover:scale-110 transition-transform"
       >
-        {isMobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+        {/* TOUJOURS FaBars, ne change pas en X */}
+        <FaBars size={20} />
       </button>
 
       {/* Sidebar Desktop */}
@@ -43,7 +44,7 @@ const Sidebar = () => {
         md:hidden fixed inset-0 z-40 transform transition-transform duration-300 ease-in-out
         ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        {/* Overlay - clique pour fermer (remplace le X) */}
+        {/* Overlay */}
         {isMobileOpen && (
           <div 
             className="absolute inset-0 bg-black bg-opacity-50"
@@ -51,13 +52,22 @@ const Sidebar = () => {
           />
         )}
         
-        {/* Sidebar content - SANS le bouton X */}
+        {/* Sidebar content - AVEC le bouton X DEDANS */}
         <div className="relative w-64 h-full bg-gradient-to-b from-gray-900 to-gray-800 text-white shadow-xl">
-          {/* Header SANS bouton X */}
+          {/* Header AVEC bouton X */}
           <div className="p-6 border-b border-gray-700">
-            <div>
-              <h2 className="font-bold text-xl">Admin Panel</h2>
-              <p className="text-gray-400 text-sm">Portfolio Contacts</p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="font-bold text-xl">Admin Panel</h2>
+                <p className="text-gray-400 text-sm">Portfolio Contacts</p>
+              </div>
+              {/* X pour fermer le sidebar */}
+              <button
+                onClick={() => setIsMobileOpen(false)}
+                className="p-2 hover:bg-gray-700 rounded-lg"
+              >
+                <FaTimes size={20} />
+              </button>
             </div>
           </div>
 
