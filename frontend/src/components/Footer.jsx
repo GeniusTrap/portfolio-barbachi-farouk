@@ -15,27 +15,11 @@ const Footer = () => {
   const [notificationType, setNotificationType] = useState(''); 
   const [notificationMessage, setNotificationMessage] = useState('');
   const [submitCount, setSubmitCount] = useState(0);
-  const [isAdvancedContactHovering, setIsAdvancedContactHovering] = useState(false);
 
   useEffect(() => {
     emailjs.init('ln4T5Ewt2cW4bF3pB');
   }, []);
 
-  useEffect(() => {
-  const handleTriggerHover = () => {
-    setIsAdvancedContactHovering(true);
-    
-    setTimeout(() => {
-      setIsAdvancedContactHovering(false);
-    }, 3000);
-  };
-  
-  window.addEventListener('triggerAdvancedContactHover', handleTriggerHover);
-  
-  return () => {
-    window.removeEventListener('triggerAdvancedContactHover', handleTriggerHover);
-  };
-}, []);
 
   const [contactForm, setContactForm] = useState({
     firstName: '',
@@ -367,41 +351,18 @@ const Footer = () => {
                 <button
   onClick={handleAdvancedContactClick}
   disabled={isAnimating}
-  className={`group w-full py-3 text-white font-bold rounded-lg transition-all duration-300 transform mb-3 relative overflow-hidden text-sm ${
-    isAdvancedContactHovering 
-      ? 'scale-95 shadow-lg shadow-green-500/20' 
-      : 'hover:scale-95 hover:shadow-lg hover:shadow-orange-500/20'
-  }`}
-  style={{
-    background: isAdvancedContactHovering 
-      ? 'linear-gradient(to right, #10b981, #059669)' 
-      : 'linear-gradient(to right, #f97316, #ea580c)' 
-  }}
+  className="group w-full py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-95 hover:shadow-lg hover:shadow-orange-500/20 mb-3 relative overflow-hidden text-sm"
 >
-  <div className={`absolute inset-0 transition-opacity duration-300 ${
-    isAdvancedContactHovering ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-  }`}
-  style={{
-    background: isAdvancedContactHovering 
-      ? 'linear-gradient(to right, #059669, #047857)' 
-      : 'linear-gradient(to right, #ea580c, #c2410c)' 
-  }}
-  ></div>
+  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
   
   <div className="relative z-10 flex items-center justify-center">
-    <FaPaperPlane className={`mr-2 transition-transform duration-300 ${
-      isAdvancedContactHovering ? 'rotate-12 scale-110' : 'group-hover:rotate-12 group-hover:scale-110'
-    } text-sm`} />
-    <span className={`transition-all duration-300 ${
-      isAdvancedContactHovering ? 'tracking-wider' : 'group-hover:tracking-wider'
-    }`}>
+    <FaPaperPlane className="mr-2 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110 text-sm" />
+    <span className="transition-all duration-300 group-hover:tracking-wider">
       Advanced Contact
     </span>
   </div>
   
-  <div className={`absolute inset-0 border border-transparent rounded-lg transition-all duration-300 ${
-    isAdvancedContactHovering ? 'border-white/30' : 'group-hover:border-white/30'
-  }`}></div>
+  <div className="absolute inset-0 border border-transparent rounded-lg transition-all duration-300 group-hover:border-white/30"></div>
 </button>
                 
                 <form onSubmit={handleSubscribe} className="space-y-3">

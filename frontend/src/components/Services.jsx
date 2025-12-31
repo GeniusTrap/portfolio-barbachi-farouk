@@ -192,21 +192,16 @@ const Services = () => {
 
                           <div className="absolute bottom-0 left-0 right-0 p-6">
                             <button 
-                              onClick={() => {
-                                const footer = document.getElementById('contact');
-                                if (footer) {
-                                  footer.scrollIntoView({ behavior: 'smooth' });
-                                  
-                                  setTimeout(() => {
-                                    const hoverEvent = new CustomEvent('triggerAdvancedContactHover');
-                                    window.dispatchEvent(hoverEvent);
-                                  }, 800); 
-                                }
-                              }}
-                              className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-                            >
-                              Start {service.title.split(' ')[0]} Project
-                            </button>
+  onClick={() => {
+    const footer = document.getElementById('contact');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+>
+  Start {service.title.split(' ')[0]} Project
+</button>
                           </div>
                         </div>
                       </div>

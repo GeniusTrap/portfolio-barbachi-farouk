@@ -145,7 +145,6 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             
-            {/* SECTION TEXTE - AVEC PADDING MOBILE */}
             <div className="lg:w-1/2 mb-10 lg:mb-0 px-4">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6 min-h-[4.5rem] md:min-h-[5.5rem]">
                 {renderTextWithColors()}
@@ -203,8 +202,7 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
             <div className="lg:w-1/2 flex justify-center px-4">
   <div className="relative">
     <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
-      {/* Les cercles orbitaux - DEVANT l'image */}
-      <div className="absolute inset-0 z-30"> {/* AJOUTÉ: z-30 */}
+      <div className="absolute inset-0 z-30"> 
         <div className="absolute top-0 left-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-orange-200 rounded-full opacity-50 animate-orbit-outside" 
              style={{ transform: 'translate(-50%, -50%)' }}>
         </div>
@@ -214,8 +212,7 @@ const handleDownloadCV = (filename = 'Barbachi_Farouk_CV.pdf') => {
         </div>
       </div>
       
-      {/* L'image - DERRIÈRE les cercles */}
-      <div className="absolute inset-0 w-full h-full z-20"> {/* z-20 (inférieur à z-30) */}
+      <div className="absolute inset-0 w-full h-full z-20"> 
         <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
           <img 
             src={assets.smiling} 
