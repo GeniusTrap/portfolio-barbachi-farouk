@@ -126,7 +126,7 @@ const Services = () => {
                     {isRevealed && (
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black animate-fade-in">
                         <div className="absolute inset-0 overflow-hidden">
-                          {[...Array(8)].map((_, i) => (
+                          {[...Array(window.innerWidth > 768 ? 8 : 3)].map((_, i) => (
                             <div 
                               key={i}
                               className="absolute w-1 h-1 bg-white rounded-full animate-ping"
