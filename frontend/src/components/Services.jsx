@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaCode, FaServer, FaMobileAlt } from 'react-icons/fa';
 import ScrollAnimation from './ScrollAnimation';
 
 const Services = () => {
   const [revealedCards, setRevealedCards] = useState([]); 
   const [shakingCard, setShakingCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const services = [
     {
@@ -38,6 +39,13 @@ const Services = () => {
       ]
     }
   ];
+
+    useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleCardClick = (index) => {
   setRevealedCards(prevRevealedCards => {
@@ -82,13 +90,13 @@ const Services = () => {
                   <div 
                     className={`relative h-full rounded-2xl overflow-hidden transition-all duration-500 ${
                       isShaking ? 'animate-shake' : ''
-                    } ${!isRevealed ? 'cursor-pointer' : ''}`}
+                    } ${!isRevealed ? 'cursor-pointer' : ''} will-change-transform`}
                     onClick={() => !isRevealed && handleCardClick(index)}
                   >
                     {!isRevealed && (
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
                         <div className="absolute inset-0 overflow-hidden">
-                          {[...Array(12)].map((_, i) => (
+                          {!isMobile && [...Array(12)].map((_, i) => (
                             <div 
                               key={i}
                               className="absolute w-1 h-1 bg-white rounded-full animate-ping"
@@ -126,7 +134,7 @@ const Services = () => {
                     {isRevealed && (
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black animate-fade-in">
                         <div className="absolute inset-0 overflow-hidden">
-                          {[...Array(window.innerWidth > 768 ? 8 : 3)].map((_, i) => (
+                          {[...Array(isMobile ? 3 : 8)].map((_, i) => (
                             <div 
                               key={i}
                               className="absolute w-1 h-1 bg-white rounded-full animate-ping"
