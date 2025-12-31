@@ -118,14 +118,17 @@ const Footer = () => {
   }
 
   try {
-    const response = await emailjs.send(
-      'service_xe41fun',
-      'template_k0qybz3',
-      {
-        user_email: cleanEmail,
-        to_name: cleanEmail.split('@')[0]
-      }
-    );
+  const userName = cleanEmail.split('@')[0] || 'Visitor';
+  
+  const response = await emailjs.send(
+    'service_xe41fun',
+    'template_k0qybz3',
+    {
+      user_email: cleanEmail,
+      to_name: userName,
+      date: new Date().toISOString().split('T')[0] // Format YYYY-MM-DD
+    }
+  );
     
     showNotificationModal('success', 'Subscription confirmed! Check your email.');
     setEmail('');
