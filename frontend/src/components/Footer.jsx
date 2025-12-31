@@ -121,7 +121,7 @@ const Footer = () => {
   const userName = cleanEmail.split('@')[0] || 'Visitor';
   
   const response = await emailjs.send(
-    'service_xe41fun',
+    'service_zunuu0i',
     'template_k0qybz3',
     {
       user_email: cleanEmail,
